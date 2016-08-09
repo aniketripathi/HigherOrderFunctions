@@ -1,0 +1,189 @@
+\hypertarget{hoarray_8h}{}\section{hoarray.\+h File Reference}
+\label{hoarray_8h}\index{hoarray.\+h@{hoarray.\+h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{group__typedef_group_ga3bd969ff6cd52b00d54500638dffb379}{fptr\+Long\+Int\+One\+Void}) (long int)
+\item 
+typedef void($\ast$ \hyperlink{group__typedef_group_gac41973fac47233da48589a3cc3398b51}{fptr\+Long\+Int\+Long\+Int\+Two\+Void}) (long int, long int)
+\item 
+typedef long int($\ast$ \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int}) (long int)
+\item 
+typedef long int($\ast$ \hyperlink{group__typedef_group_ga38e424990ad08db2dfae4135eebda12f}{fptr\+Long\+Int\+Long\+Int\+Two\+Long\+Int}) (long int, long int)
+\item 
+typedef int($\ast$ \hyperlink{group__typedef_group_ga61711f6fdcc29325f1212e26845b466f}{fptr\+Long\+Int\+Long\+Int\+Two\+Int}) (long int)
+\item 
+typedef void($\ast$ \hyperlink{group__typedef_group_ga15b0509ad469369c2107f96d532aa5d5}{fptr\+P\+Long\+Int\+One\+Void}) (long int $\ast$)
+\item 
+typedef int($\ast$ \hyperlink{group__typedef_group_ga870022f202fc4309fe0b4f4b9bddbb51}{fptr\+Long\+Int\+One\+Int}) (long int)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{hoarray_8h_adcec2727306e72694f766b080ff2e0d3}{for\+Each} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga3bd969ff6cd52b00d54500638dffb379}{fptr\+Long\+Int\+One\+Void} action)
+\begin{DoxyCompactList}\small\item\em Performs an action on each of the array element from beg\+Index to end\+Index. \end{DoxyCompactList}\item 
+long int \hyperlink{hoarray_8h_a9a36545929c511c5e9335f6bcd8d63ba}{reduce} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} operation)
+\begin{DoxyCompactList}\small\item\em Performs an operation on each of the array element from beg\+Index to end\+Index and adds the result of each operation. \end{DoxyCompactList}\item 
+long int $\ast$ \hyperlink{hoarray_8h_ac61b84066660e865843b8ab4335f250c}{map} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} operation)
+\begin{DoxyCompactList}\small\item\em Performs an operation on each of the array element from beg\+Index to end\+Index and returns a new array. \end{DoxyCompactList}\item 
+void \hyperlink{hoarray_8h_ab77bfade59af8ee7b4b97c5d0f2dc6e1}{transform} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga15b0509ad469369c2107f96d532aa5d5}{fptr\+P\+Long\+Int\+One\+Void} operation)
+\begin{DoxyCompactList}\small\item\em Performs an operation on each of the array element from beg\+Index to end\+Index and returns a new array. \end{DoxyCompactList}\item 
+long int $\ast$ \hyperlink{hoarray_8h_a263395d74c57272f714eb12ca870f770}{filter} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, long unsigned int $\ast$length, \hyperlink{group__typedef_group_ga870022f202fc4309fe0b4f4b9bddbb51}{fptr\+Long\+Int\+One\+Int} test)
+\begin{DoxyCompactList}\small\item\em Filters the elements of the given array from beg\+Index to end\+Index that satisfies the given test and returns a new array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{hoarray_8h_a263395d74c57272f714eb12ca870f770}{}\index{hoarray.\+h@{hoarray.\+h}!filter@{filter}}
+\index{filter@{filter}!hoarray.\+h@{hoarray.\+h}}
+\subsubsection[{filter(long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, long unsigned int $\ast$length, fptr\+Long\+Int\+One\+Int test)}]{\setlength{\rightskip}{0pt plus 5cm}long int$\ast$ filter (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long unsigned int}]{beg\+Index, }
+\item[{long unsigned int}]{end\+Index, }
+\item[{long unsigned int $\ast$}]{length, }
+\item[{{\bf fptr\+Long\+Int\+One\+Int}}]{test}
+\end{DoxyParamCaption}
+)}\label{hoarray_8h_a263395d74c57272f714eb12ca870f770}
+
+
+Filters the elements of the given array from beg\+Index to end\+Index that satisfies the given test and returns a new array. 
+
+This function will take five arguments. It will perform a test given by a function pointed to by test pointer and those elements which return non-\/zero value for test will be stored in the new array. Memory to the new array is allocated from heap. The length of the new array will be stored in the variable pointed to by the length argument. The function will return N\+U\+L\+L under four circumstances-\/ if array is null, pointer to function is null, pointer to length is null and failure to allocate memory. The new array is returned otherwise. Remember to free the memory when done with the new array.
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & \+: Array of numbers \\
+\hline
+{\em beg\+Index} & \+: Starting index. To begin with first element pass 0 to it. \\
+\hline
+{\em end\+Index} & \+: Index at which the action should stop. To stop at last index pass length-\/1 to it. \\
+\hline
+{\em test} & \+: A pointer to function. The function must have one argument of long int and int return type. For any non-\/zero return value by this function for any element will be considered as passing the test. \\
+\hline
+{\em length} & \+: Pointer to a variable to hold the length of the filtered array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: It returns the new array which contains the filtered elements 
+\end{DoxyReturn}
+\hypertarget{hoarray_8h_adcec2727306e72694f766b080ff2e0d3}{}\index{hoarray.\+h@{hoarray.\+h}!for\+Each@{for\+Each}}
+\index{for\+Each@{for\+Each}!hoarray.\+h@{hoarray.\+h}}
+\subsubsection[{for\+Each(long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, fptr\+Long\+Int\+One\+Void action)}]{\setlength{\rightskip}{0pt plus 5cm}void for\+Each (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long unsigned int}]{beg\+Index, }
+\item[{long unsigned int}]{end\+Index, }
+\item[{{\bf fptr\+Long\+Int\+One\+Void}}]{action}
+\end{DoxyParamCaption}
+)}\label{hoarray_8h_adcec2727306e72694f766b080ff2e0d3}
+
+
+Performs an action on each of the array element from beg\+Index to end\+Index. 
+
+This function will take four arguments. It will perform an action on the value given by each element of the array starting from beg\+Index to end\+Index. The action is defined by a function and a pointer to function is passed as argument. Note that this method will not affect the array in any way. In case of N\+U\+L\+L pointer for any either of the two arguments, nothing will happen. Both beg\+Index and end\+Index are inclusive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & \+: Array of numbers \\
+\hline
+{\em beg\+Index} & \+: Starting index. To begin with first element pass 0 to it. \\
+\hline
+{\em end\+Index} & \+: Index at which the action should stop. To stop at last index pass length-\/1 to it. \\
+\hline
+{\em action} & \+: A pointer to function. The function must have one argument of long int and void return type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: void, it does not returns anything. 
+\end{DoxyReturn}
+\hypertarget{hoarray_8h_ac61b84066660e865843b8ab4335f250c}{}\index{hoarray.\+h@{hoarray.\+h}!map@{map}}
+\index{map@{map}!hoarray.\+h@{hoarray.\+h}}
+\subsubsection[{map(long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, fptr\+Long\+Int\+One\+Long\+Int operation)}]{\setlength{\rightskip}{0pt plus 5cm}long int$\ast$ map (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long unsigned int}]{beg\+Index, }
+\item[{long unsigned int}]{end\+Index, }
+\item[{{\bf fptr\+Long\+Int\+One\+Long\+Int}}]{operation}
+\end{DoxyParamCaption}
+)}\label{hoarray_8h_ac61b84066660e865843b8ab4335f250c}
+
+
+Performs an operation on each of the array element from beg\+Index to end\+Index and returns a new array. 
+
+This function will take four arguments. It will perform an operation on the value given by each element of the array starting from beg\+Index to end\+Index. The operation is defined by a function which takes the array elements as argument and returns a value. A new array is created and and each element contains the operated value returned by the function pointed to by operation. Memory is allocated from heap to new array. In case if the array or pointer to function is N\+U\+L\+L or failure of allocation of memory then N\+U\+L\+L is returned. The length of new\+Array is same as that of original array. Remember to free the memory when done with the new array returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & \+: Array of numbers \\
+\hline
+{\em beg\+Index} & \+: Starting index. To begin with first element pass 0 to it. \\
+\hline
+{\em end\+Index} & \+: Index at which the action should stop. To stop at last index pass length-\/1 to it. \\
+\hline
+{\em operation} & \+: A pointer to function. The function must have one argument of long int and long int return type. The operation performed on the elements depends on this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: It returns the new array which contains the mapped value to the array elements. 
+\end{DoxyReturn}
+\hypertarget{hoarray_8h_a9a36545929c511c5e9335f6bcd8d63ba}{}\index{hoarray.\+h@{hoarray.\+h}!reduce@{reduce}}
+\index{reduce@{reduce}!hoarray.\+h@{hoarray.\+h}}
+\subsubsection[{reduce(long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, fptr\+Long\+Int\+One\+Long\+Int operation)}]{\setlength{\rightskip}{0pt plus 5cm}long int reduce (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long unsigned int}]{beg\+Index, }
+\item[{long unsigned int}]{end\+Index, }
+\item[{{\bf fptr\+Long\+Int\+One\+Long\+Int}}]{operation}
+\end{DoxyParamCaption}
+)}\label{hoarray_8h_a9a36545929c511c5e9335f6bcd8d63ba}
+
+
+Performs an operation on each of the array element from beg\+Index to end\+Index and adds the result of each operation. 
+
+This function will take four arguments. It will perform an operation on the value given by each element of the array starting from beg\+Index to end\+Index. The operation is defined by a function which takes the array elements as argument and returns a value. The summation of these values are returned. In case of if the array or pointer to function is N\+U\+L\+L, then 0 is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & \+: Array of numbers \\
+\hline
+{\em beg\+Index} & \+: Starting index. To begin with first element pass 0 to it. \\
+\hline
+{\em end\+Index} & \+: Index at which the action should stop. To stop at last index pass length-\/1 to it. \\
+\hline
+{\em operation} & \+: A pointer to function. The function must have one argument of long int and long int return type. The operation performed on the elements depends on this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: It returns the summation of all the values returned after performing the operations. 
+\end{DoxyReturn}
+\hypertarget{hoarray_8h_ab77bfade59af8ee7b4b97c5d0f2dc6e1}{}\index{hoarray.\+h@{hoarray.\+h}!transform@{transform}}
+\index{transform@{transform}!hoarray.\+h@{hoarray.\+h}}
+\subsubsection[{transform(long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, fptr\+P\+Long\+Int\+One\+Void operation)}]{\setlength{\rightskip}{0pt plus 5cm}void transform (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long unsigned int}]{beg\+Index, }
+\item[{long unsigned int}]{end\+Index, }
+\item[{{\bf fptr\+P\+Long\+Int\+One\+Void}}]{operation}
+\end{DoxyParamCaption}
+)}\label{hoarray_8h_ab77bfade59af8ee7b4b97c5d0f2dc6e1}
+
+
+Performs an operation on each of the array element from beg\+Index to end\+Index and returns a new array. 
+
+This function will take four arguments. It will perform an operation on the value given by each element of the array starting from beg\+Index to end\+Index. The operation is defined by a function which takes the array elements as argument and returns a value. The original array is modified and value at every index is replaced by the operated value returned by the function pointed to by operation. In case if the array or pointer to function is N\+U\+L\+L then N\+U\+L\+L is returned.
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & \+: Array of numbers \\
+\hline
+{\em beg\+Index} & \+: Starting index. To begin with first element pass 0 to it. \\
+\hline
+{\em end\+Index} & \+: Index at which the action should stop. To stop at last index pass length-\/1 to it. \\
+\hline
+{\em operation} & \+: A pointer to function. The function must have one argument of pointer to long int and long int return type. The element of array is passed through call by reference. The operation performed on the elements depends on this function. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: void, it does not returned anything. 
+\end{DoxyReturn}

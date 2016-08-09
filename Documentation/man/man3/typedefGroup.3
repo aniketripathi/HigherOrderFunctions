@@ -1,0 +1,67 @@
+.TH "typedefGroup" 3 "Tue Aug 9 2016" "HigherOrderFunctions" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+typedefGroup \- Typedefines for various type of pointer to functions
+.PP
+Declares various function pointers based on their type and number of arguments and type of return The following convention is followed in order\&.  
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBfptrLongIntOneVoid\fP) (long int)"
+.br
+.ti -1c
+.RI "typedef void(* \fBfptrLongIntLongIntTwoVoid\fP) (long int, long int)"
+.br
+.ti -1c
+.RI "typedef long int(* \fBfptrLongIntOneLongInt\fP) (long int)"
+.br
+.ti -1c
+.RI "typedef long int(* \fBfptrLongIntLongIntTwoLongInt\fP) (long int, long int)"
+.br
+.ti -1c
+.RI "typedef int(* \fBfptrLongIntLongIntTwoInt\fP) (long int)"
+.br
+.ti -1c
+.RI "typedef void(* \fBfptrPLongIntOneVoid\fP) (long int *)"
+.br
+.ti -1c
+.RI "typedef int(* \fBfptrLongIntOneInt\fP) (long int)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Declares various function pointers based on their type and number of arguments and type of return The following convention is followed in order\&. 
+
+
+.IP "1." 4
+Name begins with 'fptr' to indicate that it is a function pointer\&.
+.IP "2." 4
+Then type of argument\&. For pointers - 'P'\&. Use String for character array and original names otherwise\&.
+.IP "3." 4
+Total number number of arguments\&.
+.IP "4." 4
+Return type following same convention as for arguments\&. 
+.PP
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef int(* fptrLongIntLongIntTwoInt) (long int)"
+
+.SS "typedef long int(* fptrLongIntLongIntTwoLongInt) (long int, long int)"
+
+.SS "typedef void(* fptrLongIntLongIntTwoVoid) (long int, long int)"
+
+.SS "typedef int(* fptrLongIntOneInt) (long int)"
+
+.SS "typedef long int(* fptrLongIntOneLongInt) (long int)"
+
+.SS "typedef void(* fptrLongIntOneVoid) (long int)"
+
+.SS "typedef void(* fptrPLongIntOneVoid) (long int *)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for HigherOrderFunctions from the source code\&.

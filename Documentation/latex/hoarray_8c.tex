@@ -1,0 +1,91 @@
+\hypertarget{hoarray_8c}{}\section{hoarray.\+c File Reference}
+\label{hoarray_8c}\index{hoarray.\+c@{hoarray.\+c}}
+{\ttfamily \#include \char`\"{}hoarray.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{hoarray_8c_a69a47d29fef536119ed4bf5b9742ab02}{for\+Each} (long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, \hyperlink{group__typedef_group_ga3bd969ff6cd52b00d54500638dffb379}{fptr\+Long\+Int\+One\+Void} action)
+\begin{DoxyCompactList}\small\item\em Simple implementation of for\+Each function. \end{DoxyCompactList}\item 
+long int \hyperlink{hoarray_8c_a799843f3ac598b39089481e3d0c61070}{reduce} (long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} action)
+\begin{DoxyCompactList}\small\item\em Simple implementation of reduce function. \end{DoxyCompactList}\item 
+long int $\ast$ \hyperlink{hoarray_8c_a2d986d72f7155aa4f472e281c5abea5b}{map} (long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} operation)
+\begin{DoxyCompactList}\small\item\em Simple implementation of map function. \end{DoxyCompactList}\item 
+void \hyperlink{hoarray_8c_a55629ff2fbf9f02c841d9b9df82c67a3}{transform} (long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, \hyperlink{group__typedef_group_ga15b0509ad469369c2107f96d532aa5d5}{fptr\+P\+Long\+Int\+One\+Void} action)
+\begin{DoxyCompactList}\small\item\em Simple implementation of transform function. \end{DoxyCompactList}\item 
+long int $\ast$ \hyperlink{hoarray_8c_ae4fb335382839b97a5333b62331d81c7}{filter} (long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, long unsigned int $\ast$length, \hyperlink{group__typedef_group_ga870022f202fc4309fe0b4f4b9bddbb51}{fptr\+Long\+Int\+One\+Int} test)
+\begin{DoxyCompactList}\small\item\em Simple implementation of filter method. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{hoarray_8c_ae4fb335382839b97a5333b62331d81c7}{}\index{hoarray.\+c@{hoarray.\+c}!filter@{filter}}
+\index{filter@{filter}!hoarray.\+c@{hoarray.\+c}}
+\subsubsection[{filter(long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, long unsigned int $\ast$length, fptr\+Long\+Int\+One\+Int test)}]{\setlength{\rightskip}{0pt plus 5cm}long int$\ast$ filter (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long int unsigned}]{beg\+Index, }
+\item[{long int unsigned}]{end\+Index, }
+\item[{long unsigned int $\ast$}]{length, }
+\item[{{\bf fptr\+Long\+Int\+One\+Int}}]{test}
+\end{DoxyParamCaption}
+)}\label{hoarray_8c_ae4fb335382839b97a5333b62331d81c7}
+
+
+Simple implementation of filter method. 
+
+The elements are filtered on basis of test function. Memory to new\+Array is allocated from heap. Initially memory is allocated for all the elements. If the length of new\+Array is less than the original array then the memory is reallocated using realloc which will free up the extra memory. You can use your custom memory allocating technique. \hypertarget{hoarray_8c_a69a47d29fef536119ed4bf5b9742ab02}{}\index{hoarray.\+c@{hoarray.\+c}!for\+Each@{for\+Each}}
+\index{for\+Each@{for\+Each}!hoarray.\+c@{hoarray.\+c}}
+\subsubsection[{for\+Each(long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, fptr\+Long\+Int\+One\+Void action)}]{\setlength{\rightskip}{0pt plus 5cm}void for\+Each (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long int unsigned}]{beg\+Index, }
+\item[{long int unsigned}]{end\+Index, }
+\item[{{\bf fptr\+Long\+Int\+One\+Void}}]{action}
+\end{DoxyParamCaption}
+)}\label{hoarray_8c_a69a47d29fef536119ed4bf5b9742ab02}
+
+
+Simple implementation of for\+Each function. 
+
+No error handler is used. \hypertarget{hoarray_8c_a2d986d72f7155aa4f472e281c5abea5b}{}\index{hoarray.\+c@{hoarray.\+c}!map@{map}}
+\index{map@{map}!hoarray.\+c@{hoarray.\+c}}
+\subsubsection[{map(long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, fptr\+Long\+Int\+One\+Long\+Int operation)}]{\setlength{\rightskip}{0pt plus 5cm}long int$\ast$ map (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long int unsigned}]{beg\+Index, }
+\item[{long int unsigned}]{end\+Index, }
+\item[{{\bf fptr\+Long\+Int\+One\+Long\+Int}}]{operation}
+\end{DoxyParamCaption}
+)}\label{hoarray_8c_a2d986d72f7155aa4f472e281c5abea5b}
+
+
+Simple implementation of map function. 
+
+No error handler is used. The new\+Array is created from the heap using malloc. \hypertarget{hoarray_8c_a799843f3ac598b39089481e3d0c61070}{}\index{hoarray.\+c@{hoarray.\+c}!reduce@{reduce}}
+\index{reduce@{reduce}!hoarray.\+c@{hoarray.\+c}}
+\subsubsection[{reduce(long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, fptr\+Long\+Int\+One\+Long\+Int action)}]{\setlength{\rightskip}{0pt plus 5cm}long int reduce (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long int unsigned}]{beg\+Index, }
+\item[{long int unsigned}]{end\+Index, }
+\item[{{\bf fptr\+Long\+Int\+One\+Long\+Int}}]{action}
+\end{DoxyParamCaption}
+)}\label{hoarray_8c_a799843f3ac598b39089481e3d0c61070}
+
+
+Simple implementation of reduce function. 
+
+No error handler is used. The function adds the values returned by the action function and then returns a single value. Modify the main expression the get different general term and result. The default value of result is zero. \hypertarget{hoarray_8c_a55629ff2fbf9f02c841d9b9df82c67a3}{}\index{hoarray.\+c@{hoarray.\+c}!transform@{transform}}
+\index{transform@{transform}!hoarray.\+c@{hoarray.\+c}}
+\subsubsection[{transform(long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, fptr\+P\+Long\+Int\+One\+Void action)}]{\setlength{\rightskip}{0pt plus 5cm}void transform (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long int unsigned}]{beg\+Index, }
+\item[{long int unsigned}]{end\+Index, }
+\item[{{\bf fptr\+P\+Long\+Int\+One\+Void}}]{action}
+\end{DoxyParamCaption}
+)}\label{hoarray_8c_a55629ff2fbf9f02c841d9b9df82c67a3}
+
+
+Simple implementation of transform function. 
+
+No error handler used. The original array is modified. 

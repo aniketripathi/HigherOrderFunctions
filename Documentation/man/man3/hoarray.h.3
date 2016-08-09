@@ -1,0 +1,177 @@
+.TH "hoarray.h" 3 "Tue Aug 9 2016" "HigherOrderFunctions" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hoarray.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdlib\&.h>\fP
+.br
+
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBfptrLongIntOneVoid\fP) (long int)"
+.br
+.ti -1c
+.RI "typedef void(* \fBfptrLongIntLongIntTwoVoid\fP) (long int, long int)"
+.br
+.ti -1c
+.RI "typedef long int(* \fBfptrLongIntOneLongInt\fP) (long int)"
+.br
+.ti -1c
+.RI "typedef long int(* \fBfptrLongIntLongIntTwoLongInt\fP) (long int, long int)"
+.br
+.ti -1c
+.RI "typedef int(* \fBfptrLongIntLongIntTwoInt\fP) (long int)"
+.br
+.ti -1c
+.RI "typedef void(* \fBfptrPLongIntOneVoid\fP) (long int *)"
+.br
+.ti -1c
+.RI "typedef int(* \fBfptrLongIntOneInt\fP) (long int)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBforEach\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneVoid\fP action)"
+.br
+.RI "\fIPerforms an action on each of the array element from begIndex to endIndex\&. \fP"
+.ti -1c
+.RI "long int \fBreduce\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP operation)"
+.br
+.RI "\fIPerforms an operation on each of the array element from begIndex to endIndex and adds the result of each operation\&. \fP"
+.ti -1c
+.RI "long int * \fBmap\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP operation)"
+.br
+.RI "\fIPerforms an operation on each of the array element from begIndex to endIndex and returns a new array\&. \fP"
+.ti -1c
+.RI "void \fBtransform\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrPLongIntOneVoid\fP operation)"
+.br
+.RI "\fIPerforms an operation on each of the array element from begIndex to endIndex and returns a new array\&. \fP"
+.ti -1c
+.RI "long int * \fBfilter\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, long unsigned int *length, \fBfptrLongIntOneInt\fP test)"
+.br
+.RI "\fIFilters the elements of the given array from begIndex to endIndex that satisfies the given test and returns a new array\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "long int* filter (long int * array, long unsigned int begIndex, long unsigned int endIndex, long unsigned int * length, \fBfptrLongIntOneInt\fP test)"
+
+.PP
+Filters the elements of the given array from begIndex to endIndex that satisfies the given test and returns a new array\&. This function will take five arguments\&. It will perform a test given by a function pointed to by test pointer and those elements which return non-zero value for test will be stored in the new array\&. Memory to the new array is allocated from heap\&. The length of the new array will be stored in the variable pointed to by the length argument\&. The function will return NULL under four circumstances- if array is null, pointer to function is null, pointer to length is null and failure to allocate memory\&. The new array is returned otherwise\&. Remember to free the memory when done with the new array\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIarray\fP : Array of numbers 
+.br
+\fIbegIndex\fP : Starting index\&. To begin with first element pass 0 to it\&. 
+.br
+\fIendIndex\fP : Index at which the action should stop\&. To stop at last index pass length-1 to it\&. 
+.br
+\fItest\fP : A pointer to function\&. The function must have one argument of long int and int return type\&. For any non-zero return value by this function for any element will be considered as passing the test\&. 
+.br
+\fIlength\fP : Pointer to a variable to hold the length of the filtered array\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: It returns the new array which contains the filtered elements 
+.RE
+.PP
+
+.SS "void forEach (long int * array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneVoid\fP action)"
+
+.PP
+Performs an action on each of the array element from begIndex to endIndex\&. This function will take four arguments\&. It will perform an action on the value given by each element of the array starting from begIndex to endIndex\&. The action is defined by a function and a pointer to function is passed as argument\&. Note that this method will not affect the array in any way\&. In case of NULL pointer for any either of the two arguments, nothing will happen\&. Both begIndex and endIndex are inclusive\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIarray\fP : Array of numbers 
+.br
+\fIbegIndex\fP : Starting index\&. To begin with first element pass 0 to it\&. 
+.br
+\fIendIndex\fP : Index at which the action should stop\&. To stop at last index pass length-1 to it\&. 
+.br
+\fIaction\fP : A pointer to function\&. The function must have one argument of long int and void return type\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: void, it does not returns anything\&. 
+.RE
+.PP
+
+.SS "long int* map (long int * array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP operation)"
+
+.PP
+Performs an operation on each of the array element from begIndex to endIndex and returns a new array\&. This function will take four arguments\&. It will perform an operation on the value given by each element of the array starting from begIndex to endIndex\&. The operation is defined by a function which takes the array elements as argument and returns a value\&. A new array is created and and each element contains the operated value returned by the function pointed to by operation\&. Memory is allocated from heap to new array\&. In case if the array or pointer to function is NULL or failure of allocation of memory then NULL is returned\&. The length of newArray is same as that of original array\&. Remember to free the memory when done with the new array returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIarray\fP : Array of numbers 
+.br
+\fIbegIndex\fP : Starting index\&. To begin with first element pass 0 to it\&. 
+.br
+\fIendIndex\fP : Index at which the action should stop\&. To stop at last index pass length-1 to it\&. 
+.br
+\fIoperation\fP : A pointer to function\&. The function must have one argument of long int and long int return type\&. The operation performed on the elements depends on this function\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: It returns the new array which contains the mapped value to the array elements\&. 
+.RE
+.PP
+
+.SS "long int reduce (long int * array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP operation)"
+
+.PP
+Performs an operation on each of the array element from begIndex to endIndex and adds the result of each operation\&. This function will take four arguments\&. It will perform an operation on the value given by each element of the array starting from begIndex to endIndex\&. The operation is defined by a function which takes the array elements as argument and returns a value\&. The summation of these values are returned\&. In case of if the array or pointer to function is NULL, then 0 is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIarray\fP : Array of numbers 
+.br
+\fIbegIndex\fP : Starting index\&. To begin with first element pass 0 to it\&. 
+.br
+\fIendIndex\fP : Index at which the action should stop\&. To stop at last index pass length-1 to it\&. 
+.br
+\fIoperation\fP : A pointer to function\&. The function must have one argument of long int and long int return type\&. The operation performed on the elements depends on this function\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: It returns the summation of all the values returned after performing the operations\&. 
+.RE
+.PP
+
+.SS "void transform (long int * array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrPLongIntOneVoid\fP operation)"
+
+.PP
+Performs an operation on each of the array element from begIndex to endIndex and returns a new array\&. This function will take four arguments\&. It will perform an operation on the value given by each element of the array starting from begIndex to endIndex\&. The operation is defined by a function which takes the array elements as argument and returns a value\&. The original array is modified and value at every index is replaced by the operated value returned by the function pointed to by operation\&. In case if the array or pointer to function is NULL then NULL is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIarray\fP : Array of numbers 
+.br
+\fIbegIndex\fP : Starting index\&. To begin with first element pass 0 to it\&. 
+.br
+\fIendIndex\fP : Index at which the action should stop\&. To stop at last index pass length-1 to it\&. 
+.br
+\fIoperation\fP : A pointer to function\&. The function must have one argument of pointer to long int and long int return type\&. The element of array is passed through call by reference\&. The operation performed on the elements depends on this function\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: void, it does not returned anything\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for HigherOrderFunctions from the source code\&.

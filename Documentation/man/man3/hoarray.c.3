@@ -1,0 +1,60 @@
+.TH "hoarray.c" 3 "Tue Aug 9 2016" "HigherOrderFunctions" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hoarray.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'hoarray\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBforEach\fP (long int *array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrLongIntOneVoid\fP action)"
+.br
+.RI "\fISimple implementation of forEach function\&. \fP"
+.ti -1c
+.RI "long int \fBreduce\fP (long int *array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrLongIntOneLongInt\fP action)"
+.br
+.RI "\fISimple implementation of reduce function\&. \fP"
+.ti -1c
+.RI "long int * \fBmap\fP (long int *array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrLongIntOneLongInt\fP operation)"
+.br
+.RI "\fISimple implementation of map function\&. \fP"
+.ti -1c
+.RI "void \fBtransform\fP (long int *array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrPLongIntOneVoid\fP action)"
+.br
+.RI "\fISimple implementation of transform function\&. \fP"
+.ti -1c
+.RI "long int * \fBfilter\fP (long int *array, long int unsigned begIndex, long int unsigned endIndex, long unsigned int *length, \fBfptrLongIntOneInt\fP test)"
+.br
+.RI "\fISimple implementation of filter method\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "long int* filter (long int * array, long int unsigned begIndex, long int unsigned endIndex, long unsigned int * length, \fBfptrLongIntOneInt\fP test)"
+
+.PP
+Simple implementation of filter method\&. The elements are filtered on basis of test function\&. Memory to newArray is allocated from heap\&. Initially memory is allocated for all the elements\&. If the length of newArray is less than the original array then the memory is reallocated using realloc which will free up the extra memory\&. You can use your custom memory allocating technique\&. 
+.SS "void forEach (long int * array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrLongIntOneVoid\fP action)"
+
+.PP
+Simple implementation of forEach function\&. No error handler is used\&. 
+.SS "long int* map (long int * array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrLongIntOneLongInt\fP operation)"
+
+.PP
+Simple implementation of map function\&. No error handler is used\&. The newArray is created from the heap using malloc\&. 
+.SS "long int reduce (long int * array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrLongIntOneLongInt\fP action)"
+
+.PP
+Simple implementation of reduce function\&. No error handler is used\&. The function adds the values returned by the action function and then returns a single value\&. Modify the main expression the get different general term and result\&. The default value of result is zero\&. 
+.SS "void transform (long int * array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrPLongIntOneVoid\fP action)"
+
+.PP
+Simple implementation of transform function\&. No error handler used\&. The original array is modified\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for HigherOrderFunctions from the source code\&.
