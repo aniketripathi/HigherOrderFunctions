@@ -21,6 +21,18 @@ if(array != NULL && action != NULL){
 }
 
 /**
+ * Simple implementation of setValue function. No error handler is used.
+ */
+void setValue(long int* array, long unsigned int begIndex, long unsigned int endIndex,fptrLongIntOneLongInt process){
+	if(array != NULL && process != NULL){
+		long unsigned int i;
+		for(i = begIndex; i <= endIndex; i++)		array[i] = process(i);
+	}
+
+}
+
+
+/**
  * Simple implementation of reduce function. No error handler is used. The function adds the values returned by the action function
  *  and then returns a single value. Modify the main expression the get different general term and result. The default value of result
  *  is zero.

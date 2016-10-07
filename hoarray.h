@@ -45,6 +45,29 @@ typedef int (*fptrLongIntOneInt)(long int);
  **/
 void forEach(long int* array, long unsigned int begIndex, long unsigned int endIndex,fptrLongIntOneVoid action);
 
+
+
+/**
+ * \brief Sets the value of the array according to the process function.
+ *
+ *  This function will take four arguments. It sets the value of each element of the array starting from begIndex
+ *  to endIndex according to the process function. The process is defined by a function and a pointer to
+ *  function is passed as argument. It will have a single argument of long integer type. In case of
+ *  NULL pointer for any either of the two arguments, nothing will happen. Both begIndex and endIndex are inclusive.
+ *
+ * \param array 	  : Array of numbers
+ * \param begIndex    : Starting index. To begin with first element pass 0 to it.
+ * \param endIndex    : Index at which the action should stop. To stop at last index pass length-1 to it.
+ * \param process     : A pointer to function. The function must have one argument of long int which will be the
+ * 						index of the element. The process must return the value according to index which needs
+ * 						to be stored at each index.
+ * \return            : void, it does not returns anything.
+ **/
+void setValue(long int* array, long unsigned int begIndex, long unsigned int endIndex,fptrLongIntOneLongInt process);
+
+
+
+
 /**
  * \brief Performs an operation on each of the array element from begIndex to endIndex and adds the result of each operation.
  *
