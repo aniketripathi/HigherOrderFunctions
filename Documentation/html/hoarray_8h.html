@@ -133,6 +133,9 @@ Functions</h2></td></tr>
 <tr class="memitem:adcec2727306e72694f766b080ff2e0d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hoarray_8h.html#adcec2727306e72694f766b080ff2e0d3">forEach</a> (long int *array, long unsigned int begIndex, long unsigned int endIndex, <a class="el" href="group__typedef_group.html#ga3bd969ff6cd52b00d54500638dffb379">fptrLongIntOneVoid</a> action)</td></tr>
 <tr class="memdesc:adcec2727306e72694f766b080ff2e0d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs an action on each of the array element from begIndex to endIndex.  <a href="#adcec2727306e72694f766b080ff2e0d3">More...</a><br /></td></tr>
 <tr class="separator:adcec2727306e72694f766b080ff2e0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcca32300be9895b4fb89c42409c6c8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hoarray_8h.html#afcca32300be9895b4fb89c42409c6c8b">setValue</a> (long int *array, long unsigned int begIndex, long unsigned int endIndex, <a class="el" href="group__typedef_group.html#ga2fcac75b66a8e69e0de28880cc60ba7f">fptrLongIntOneLongInt</a> process)</td></tr>
+<tr class="memdesc:afcca32300be9895b4fb89c42409c6c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the array according to the process function.  <a href="#afcca32300be9895b4fb89c42409c6c8b">More...</a><br /></td></tr>
+<tr class="separator:afcca32300be9895b4fb89c42409c6c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a36545929c511c5e9335f6bcd8d63ba"><td class="memItemLeft" align="right" valign="top">long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hoarray_8h.html#a9a36545929c511c5e9335f6bcd8d63ba">reduce</a> (long int *array, long unsigned int begIndex, long unsigned int endIndex, <a class="el" href="group__typedef_group.html#ga2fcac75b66a8e69e0de28880cc60ba7f">fptrLongIntOneLongInt</a> operation)</td></tr>
 <tr class="memdesc:a9a36545929c511c5e9335f6bcd8d63ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs an operation on each of the array element from begIndex to endIndex and adds the result of each operation.  <a href="#a9a36545929c511c5e9335f6bcd8d63ba">More...</a><br /></td></tr>
 <tr class="separator:a9a36545929c511c5e9335f6bcd8d63ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -355,6 +358,59 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>: It returns the summation of all the values returned after performing the operations. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="afcca32300be9895b4fb89c42409c6c8b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setValue </td>
+          <td>(</td>
+          <td class="paramtype">long int *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long unsigned int&#160;</td>
+          <td class="paramname"><em>begIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long unsigned int&#160;</td>
+          <td class="paramname"><em>endIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__typedef_group.html#ga2fcac75b66a8e69e0de28880cc60ba7f">fptrLongIntOneLongInt</a>&#160;</td>
+          <td class="paramname"><em>process</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the value of the array according to the process function. </p>
+<p>This function will take four arguments. It sets the value of each element of the array starting from begIndex to endIndex according to the process function. The process is defined by a function and a pointer to function is passed as argument. It will have a single argument of long integer type. In case of NULL pointer for any either of the two arguments, nothing will happen. Both begIndex and endIndex are inclusive.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">array</td><td>: Array of numbers </td></tr>
+    <tr><td class="paramname">begIndex</td><td>: Starting index. To begin with first element pass 0 to it. </td></tr>
+    <tr><td class="paramname">endIndex</td><td>: Index at which the action should stop. To stop at last index pass length-1 to it. </td></tr>
+    <tr><td class="paramname">process</td><td>: A pointer to function. The function must have one argument of long int which will be the index of the element. The process must return the value according to index which needs to be stored at each index. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>: void, it does not returns anything.</dd></dl>
+<p>Sets the value of the array according to the process function.</p>
+<p>No error handler is used. </p>
 
 </div>
 </div>

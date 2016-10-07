@@ -1,4 +1,4 @@
-.TH "hoarray.c" 3 "Tue Aug 9 2016" "HigherOrderFunctions" \" -*- nroff -*-
+.TH "hoarray.c" 3 "Fri Oct 7 2016" "HigherOrderFunctions" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -16,6 +16,10 @@ hoarray.c \-
 .RI "void \fBforEach\fP (long int *array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrLongIntOneVoid\fP action)"
 .br
 .RI "\fISimple implementation of forEach function\&. \fP"
+.ti -1c
+.RI "void \fBsetValue\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP process)"
+.br
+.RI "\fISimple implementation of setValue function\&. \fP"
 .ti -1c
 .RI "long int \fBreduce\fP (long int *array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrLongIntOneLongInt\fP action)"
 .br
@@ -51,6 +55,12 @@ Simple implementation of map function\&. No error handler is used\&. The newArra
 
 .PP
 Simple implementation of reduce function\&. No error handler is used\&. The function adds the values returned by the action function and then returns a single value\&. Modify the main expression the get different general term and result\&. The default value of result is zero\&. 
+.SS "void setValue (long int * array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP process)"
+
+.PP
+Simple implementation of setValue function\&. Sets the value of the array according to the process function\&.
+.PP
+No error handler is used\&. 
 .SS "void transform (long int * array, long int unsigned begIndex, long int unsigned endIndex, \fBfptrPLongIntOneVoid\fP action)"
 
 .PP

@@ -6,6 +6,8 @@
 \item 
 void \hyperlink{hoarray_8c_a69a47d29fef536119ed4bf5b9742ab02}{for\+Each} (long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, \hyperlink{group__typedef_group_ga3bd969ff6cd52b00d54500638dffb379}{fptr\+Long\+Int\+One\+Void} action)
 \begin{DoxyCompactList}\small\item\em Simple implementation of for\+Each function. \end{DoxyCompactList}\item 
+void \hyperlink{hoarray_8c_afcca32300be9895b4fb89c42409c6c8b}{set\+Value} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} process)
+\begin{DoxyCompactList}\small\item\em Simple implementation of set\+Value function. \end{DoxyCompactList}\item 
 long int \hyperlink{hoarray_8c_a799843f3ac598b39089481e3d0c61070}{reduce} (long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} action)
 \begin{DoxyCompactList}\small\item\em Simple implementation of reduce function. \end{DoxyCompactList}\item 
 long int $\ast$ \hyperlink{hoarray_8c_a2d986d72f7155aa4f472e281c5abea5b}{map} (long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} operation)
@@ -74,7 +76,23 @@ No error handler is used. The new\+Array is created from the heap using malloc. 
 
 Simple implementation of reduce function. 
 
-No error handler is used. The function adds the values returned by the action function and then returns a single value. Modify the main expression the get different general term and result. The default value of result is zero. \hypertarget{hoarray_8c_a55629ff2fbf9f02c841d9b9df82c67a3}{}\index{hoarray.\+c@{hoarray.\+c}!transform@{transform}}
+No error handler is used. The function adds the values returned by the action function and then returns a single value. Modify the main expression the get different general term and result. The default value of result is zero. \hypertarget{hoarray_8c_afcca32300be9895b4fb89c42409c6c8b}{}\index{hoarray.\+c@{hoarray.\+c}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!hoarray.\+c@{hoarray.\+c}}
+\subsubsection[{set\+Value(long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, fptr\+Long\+Int\+One\+Long\+Int process)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Value (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long unsigned int}]{beg\+Index, }
+\item[{long unsigned int}]{end\+Index, }
+\item[{{\bf fptr\+Long\+Int\+One\+Long\+Int}}]{process}
+\end{DoxyParamCaption}
+)}\label{hoarray_8c_afcca32300be9895b4fb89c42409c6c8b}
+
+
+Simple implementation of set\+Value function. 
+
+Sets the value of the array according to the process function.
+
+No error handler is used. \hypertarget{hoarray_8c_a55629ff2fbf9f02c841d9b9df82c67a3}{}\index{hoarray.\+c@{hoarray.\+c}!transform@{transform}}
 \index{transform@{transform}!hoarray.\+c@{hoarray.\+c}}
 \subsubsection[{transform(long int $\ast$array, long int unsigned beg\+Index, long int unsigned end\+Index, fptr\+P\+Long\+Int\+One\+Void action)}]{\setlength{\rightskip}{0pt plus 5cm}void transform (
 \begin{DoxyParamCaption}

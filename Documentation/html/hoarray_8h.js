@@ -11,5 +11,6 @@ var hoarray_8h =
     [ "forEach", "hoarray_8h.html#adcec2727306e72694f766b080ff2e0d3", null ],
     [ "map", "hoarray_8h.html#ac61b84066660e865843b8ab4335f250c", null ],
     [ "reduce", "hoarray_8h.html#a9a36545929c511c5e9335f6bcd8d63ba", null ],
+    [ "setValue", "hoarray_8h.html#afcca32300be9895b4fb89c42409c6c8b", null ],
     [ "transform", "hoarray_8h.html#ab77bfade59af8ee7b4b97c5d0f2dc6e1", null ]
 ];

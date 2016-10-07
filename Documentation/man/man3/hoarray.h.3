@@ -1,4 +1,4 @@
-.TH "hoarray.h" 3 "Tue Aug 9 2016" "HigherOrderFunctions" \" -*- nroff -*-
+.TH "hoarray.h" 3 "Fri Oct 7 2016" "HigherOrderFunctions" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -41,6 +41,10 @@ hoarray.h \-
 .RI "void \fBforEach\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneVoid\fP action)"
 .br
 .RI "\fIPerforms an action on each of the array element from begIndex to endIndex\&. \fP"
+.ti -1c
+.RI "void \fBsetValue\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP process)"
+.br
+.RI "\fISets the value of the array according to the process function\&. \fP"
 .ti -1c
 .RI "long int \fBreduce\fP (long int *array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP operation)"
 .br
@@ -150,6 +154,30 @@ Performs an operation on each of the array element from begIndex to endIndex and
 .RE
 .PP
 
+.SS "void setValue (long int * array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrLongIntOneLongInt\fP process)"
+
+.PP
+Sets the value of the array according to the process function\&. This function will take four arguments\&. It sets the value of each element of the array starting from begIndex to endIndex according to the process function\&. The process is defined by a function and a pointer to function is passed as argument\&. It will have a single argument of long integer type\&. In case of NULL pointer for any either of the two arguments, nothing will happen\&. Both begIndex and endIndex are inclusive\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIarray\fP : Array of numbers 
+.br
+\fIbegIndex\fP : Starting index\&. To begin with first element pass 0 to it\&. 
+.br
+\fIendIndex\fP : Index at which the action should stop\&. To stop at last index pass length-1 to it\&. 
+.br
+\fIprocess\fP : A pointer to function\&. The function must have one argument of long int which will be the index of the element\&. The process must return the value according to index which needs to be stored at each index\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: void, it does not returns anything\&.
+.RE
+.PP
+Sets the value of the array according to the process function\&.
+.PP
+No error handler is used\&. 
 .SS "void transform (long int * array, long unsigned int begIndex, long unsigned int endIndex, \fBfptrPLongIntOneVoid\fP operation)"
 
 .PP

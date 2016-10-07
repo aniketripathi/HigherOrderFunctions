@@ -115,6 +115,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a69a47d29fef536119ed4bf5b9742ab02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hoarray_8c.html#a69a47d29fef536119ed4bf5b9742ab02">forEach</a> (long int *array, long int unsigned begIndex, long int unsigned endIndex, <a class="el" href="group__typedef_group.html#ga3bd969ff6cd52b00d54500638dffb379">fptrLongIntOneVoid</a> action)</td></tr>
 <tr class="memdesc:a69a47d29fef536119ed4bf5b9742ab02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple implementation of forEach function.  <a href="#a69a47d29fef536119ed4bf5b9742ab02">More...</a><br /></td></tr>
 <tr class="separator:a69a47d29fef536119ed4bf5b9742ab02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcca32300be9895b4fb89c42409c6c8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hoarray_8c.html#afcca32300be9895b4fb89c42409c6c8b">setValue</a> (long int *array, long unsigned int begIndex, long unsigned int endIndex, <a class="el" href="group__typedef_group.html#ga2fcac75b66a8e69e0de28880cc60ba7f">fptrLongIntOneLongInt</a> process)</td></tr>
+<tr class="memdesc:afcca32300be9895b4fb89c42409c6c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple implementation of setValue function.  <a href="#afcca32300be9895b4fb89c42409c6c8b">More...</a><br /></td></tr>
+<tr class="separator:afcca32300be9895b4fb89c42409c6c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a799843f3ac598b39089481e3d0c61070"><td class="memItemLeft" align="right" valign="top">long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="hoarray_8c.html#a799843f3ac598b39089481e3d0c61070">reduce</a> (long int *array, long int unsigned begIndex, long int unsigned endIndex, <a class="el" href="group__typedef_group.html#ga2fcac75b66a8e69e0de28880cc60ba7f">fptrLongIntOneLongInt</a> action)</td></tr>
 <tr class="memdesc:a799843f3ac598b39089481e3d0c61070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple implementation of reduce function.  <a href="#a799843f3ac598b39089481e3d0c61070">More...</a><br /></td></tr>
 <tr class="separator:a799843f3ac598b39089481e3d0c61070"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -296,6 +299,48 @@ Functions</h2></td></tr>
 
 <p>Simple implementation of reduce function. </p>
 <p>No error handler is used. The function adds the values returned by the action function and then returns a single value. Modify the main expression the get different general term and result. The default value of result is zero. </p>
+
+</div>
+</div>
+<a class="anchor" id="afcca32300be9895b4fb89c42409c6c8b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void setValue </td>
+          <td>(</td>
+          <td class="paramtype">long int *&#160;</td>
+          <td class="paramname"><em>array</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long unsigned int&#160;</td>
+          <td class="paramname"><em>begIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long unsigned int&#160;</td>
+          <td class="paramname"><em>endIndex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__typedef_group.html#ga2fcac75b66a8e69e0de28880cc60ba7f">fptrLongIntOneLongInt</a>&#160;</td>
+          <td class="paramname"><em>process</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Simple implementation of setValue function. </p>
+<p>Sets the value of the array according to the process function.</p>
+<p>No error handler is used. </p>
 
 </div>
 </div>

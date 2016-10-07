@@ -23,6 +23,8 @@ typedef int($\ast$ \hyperlink{group__typedef_group_ga870022f202fc4309fe0b4f4b9bd
 \item 
 void \hyperlink{hoarray_8h_adcec2727306e72694f766b080ff2e0d3}{for\+Each} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga3bd969ff6cd52b00d54500638dffb379}{fptr\+Long\+Int\+One\+Void} action)
 \begin{DoxyCompactList}\small\item\em Performs an action on each of the array element from beg\+Index to end\+Index. \end{DoxyCompactList}\item 
+void \hyperlink{hoarray_8h_afcca32300be9895b4fb89c42409c6c8b}{set\+Value} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} process)
+\begin{DoxyCompactList}\small\item\em Sets the value of the array according to the process function. \end{DoxyCompactList}\item 
 long int \hyperlink{hoarray_8h_a9a36545929c511c5e9335f6bcd8d63ba}{reduce} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} operation)
 \begin{DoxyCompactList}\small\item\em Performs an operation on each of the array element from beg\+Index to end\+Index and adds the result of each operation. \end{DoxyCompactList}\item 
 long int $\ast$ \hyperlink{hoarray_8h_ac61b84066660e865843b8ab4335f250c}{map} (long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, \hyperlink{group__typedef_group_ga2fcac75b66a8e69e0de28880cc60ba7f}{fptr\+Long\+Int\+One\+Long\+Int} operation)
@@ -157,7 +159,39 @@ This function will take four arguments. It will perform an operation on the valu
 \begin{DoxyReturn}{Returns}
 \+: It returns the summation of all the values returned after performing the operations. 
 \end{DoxyReturn}
-\hypertarget{hoarray_8h_ab77bfade59af8ee7b4b97c5d0f2dc6e1}{}\index{hoarray.\+h@{hoarray.\+h}!transform@{transform}}
+\hypertarget{hoarray_8h_afcca32300be9895b4fb89c42409c6c8b}{}\index{hoarray.\+h@{hoarray.\+h}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!hoarray.\+h@{hoarray.\+h}}
+\subsubsection[{set\+Value(long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, fptr\+Long\+Int\+One\+Long\+Int process)}]{\setlength{\rightskip}{0pt plus 5cm}void set\+Value (
+\begin{DoxyParamCaption}
+\item[{long int $\ast$}]{array, }
+\item[{long unsigned int}]{beg\+Index, }
+\item[{long unsigned int}]{end\+Index, }
+\item[{{\bf fptr\+Long\+Int\+One\+Long\+Int}}]{process}
+\end{DoxyParamCaption}
+)}\label{hoarray_8h_afcca32300be9895b4fb89c42409c6c8b}
+
+
+Sets the value of the array according to the process function. 
+
+This function will take four arguments. It sets the value of each element of the array starting from beg\+Index to end\+Index according to the process function. The process is defined by a function and a pointer to function is passed as argument. It will have a single argument of long integer type. In case of N\+U\+L\+L pointer for any either of the two arguments, nothing will happen. Both beg\+Index and end\+Index are inclusive.
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & \+: Array of numbers \\
+\hline
+{\em beg\+Index} & \+: Starting index. To begin with first element pass 0 to it. \\
+\hline
+{\em end\+Index} & \+: Index at which the action should stop. To stop at last index pass length-\/1 to it. \\
+\hline
+{\em process} & \+: A pointer to function. The function must have one argument of long int which will be the index of the element. The process must return the value according to index which needs to be stored at each index. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: void, it does not returns anything.
+\end{DoxyReturn}
+Sets the value of the array according to the process function.
+
+No error handler is used. \hypertarget{hoarray_8h_ab77bfade59af8ee7b4b97c5d0f2dc6e1}{}\index{hoarray.\+h@{hoarray.\+h}!transform@{transform}}
 \index{transform@{transform}!hoarray.\+h@{hoarray.\+h}}
 \subsubsection[{transform(long int $\ast$array, long unsigned int beg\+Index, long unsigned int end\+Index, fptr\+P\+Long\+Int\+One\+Void operation)}]{\setlength{\rightskip}{0pt plus 5cm}void transform (
 \begin{DoxyParamCaption}
